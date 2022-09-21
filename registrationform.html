@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forms</title>
+    <style>
+           .class{
+            color: red;
+            size: 10px;
+           }
+          
+           
+           
+    </style>
+    
+</head>
+<body style="text-align:center ; padding-left: 200px;">
+<div  style="border:solid red 2px ;padding: 20px; background-color: white; width: 600px;text-align: center;border-radius: 2%;" >
+<h1>Registration Form</h1>
+
+    <form name="form" action="C:\Users\91879\Desktop\web\Js\success.html" method="post">
+
+        User Id:<input type="text"  id="user" required>
+        <span class="class" id="error"></span><br><br>
+       PASSWORD:<input type="password" name="name" id="password" required>
+        <span class="class" id="pass"></span><br><br>
+        NAME:<input type="text"  pattern="[a-zA-Z ]" required>
+        <span class="class" id="error"></span><br><br>
+       Address: <input type="text">
+        <br><br>
+       country:<select required><option>(please select a country)</option>
+                 <option>india</option>
+                 <option>russia</option>
+                 <option>america</option>
+       </select><br><br>
+       ZIP code:<input type="number" pattern="[0-9]" required><br><br>
+       Email:<input type="email" id="mail">
+       <span class="class" id="email"></span><br><br>
+       Sex:<input type="radio" name="radio" required>Male
+            <input type="radio" name="radio" required>Female<br><br>
+       Language:<input type="checkbox" name="eng">English
+                <input type="checkbox" name="non">Non-English<br></br>
+       Number:<input type="text" id="number" pattern="[0]{1}[0-9]{3}-[0-9]{6}" title="please enter with country code"maxlength="11" size="11" required> 
+       <span class="class" id="num"></span><br><br>        
+       About:<textarea></textarea>  <br><br>            
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="submit" onclick=" return main()">
+      
+</form>
+</div>
+       <script>
+            var b=document.getElementById('error')
+           function add(){
+            var a=document.getElementById('user').value;
+        
+            if(a.length<=5 || a.length>=12){
+                b.innerHTML="Required and  must be of length 5 to 12"
+                
+
+            }
+           }
+             function pwd(){
+            var p=document.getElementById('password').value;
+             var c=document.getElementById('pass');
+            if(p.length<=7|| p.length>=12){
+                c.innerHTML="Required and must be of length 7 to 12"
+                
+                
+            } }
+            function mail(){
+            let e=document.getElementById('email');    
+          let m=document.getElementById('mail').value;
+          let position=m.indexOf("@");
+          let dotposition=m.lastIndexOf(".");
+          if(position<2 || dotposition<position+2|| dotposition+2>=m.length){
+                 e.innerHTML="Must be a valid mail"  ;
+                   
+          }
+        } 
+        function num(){
+            var num=document.getElementById('number').value;
+            var nm=document.getElementById('num');
+            if(num.charAt(0)!=0 || num.length==0){
+                nm.innerHTML="Required pattern should be enter"
+            }
+        }
+
+
+
+
+                 
+           
+            function main(){
+                add();
+             pwd();
+             mail()
+            return num();
+            }
+
+       </script> 
+     
+           
+        
+         
+        
+  
+</body>
+</html>

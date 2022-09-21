@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #todotext{
+            
+            width: 100%;
+            padding-right: 175px;
+
+        }
+        
+        
+    </style>
+</head>
+<body>
+    
+        <div>
+             <h2>TODO LIST</h2>
+             <div>
+                  <input type="text" id="maintext" autofocus>
+                  <button id="addbutton" type="button">Add</button>
+             </div>
+             <div class="todostext">
+                  <!-- <div class="todoitemcontainer">
+                    <span id="todotext">
+                        <input type="text" id="text">
+                    </span>
+                    <button id="editbutton">
+                             <h5>Edit</h5>
+                    </button>
+                    <button id="deletebutton"><h5>Delete</h5></button>
+                  </div> -->
+             </div>
+        </div>
+
+    
+    <script>
+
+
+         const textInput=document.querySelector('#maintext');
+        const addButton=document.querySelector('#addbutton');
+        const todosContainer=document.querySelector('.todostext');
+
+
+
+                   addButton.addEventListener('click',()=>{
+                     if(textInput.value.length=='')
+                     ;
+        const todoItemContainer=document.createElement('div');
+        todoItemContainer.classList.add('todoitemcontainer');
+        todosContainer.appendChild(todoItemContainer);
+
+        const todoText=document.createElement('span');
+        todoText.id='todotext';
+        todoText.innerText=textInput.value;
+        todoItemContainer.appendChild(todoText);
+
+        const editButton=document.createElement('button');
+        editButton.id='editbutton';
+        const editImage=document.createElement('h5');
+        editImage.innerText='Edit'
+        editButton.appendChild(editImage);
+        todoItemContainer.appendChild(editButton);
+        editButton.addEventListener('click',()=>{
+            textInput.value=todoText.innerText;
+            const parent=editButton.parentElement;
+            parent.removeChild(parent);
+        });
+
+        const deleteButton=document.createElement('button');
+        deleteButton.id='deletebutton';
+        const deleteImage=document.createElement('h5');
+        deleteImage.innerText='Delete'
+        deleteButton.appendChild(deleteImage);
+        todoItemContainer.appendChild(deleteButton);
+
+         deleteButton.addEventListener('click',()=>{
+            const parent=deleteButton.parentElement;
+            parent.parentElement.removeChild(parent);
+         });
+
+        textInput.value="";
+                   });
+    </script>
+</body>
+</html>
